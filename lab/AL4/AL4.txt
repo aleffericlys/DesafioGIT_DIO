@@ -1,0 +1,94 @@
+
+//1--------------------------------
+void mostraOrdem(struct Arv23 *raiz){//Função que mostra os elementos da árvore 2,3 em ordem crescente.
+	if (raiz != NULL)
+	{
+		if (raiz->NInfos == 1)
+		{
+			mostraOrdem(raiz->esq);
+			printf("%d \n", raiz->Info1);
+			mostraOrdem(raiz->cen);
+		}else{
+			mostraOrdem(raiz->esq);
+			printf("%d ", raiz->Info1);
+			mostraOrdem(raiz->cen);
+			printf("%d \n", raiz->Info2);
+			mostraOrdem(raiz->dir);	
+		}
+	}
+}
+
+
+//2-------------------------------------------------
+
+int busca(struct Arv23 *raiz, int valor){//Função que busca um valor na árvore e retorna 1 caso encontre, e 0 caso não.
+	int ret = 0;
+	if (raiz != NULL)
+	{	
+		if (raiz->NInfos == 1)
+		{
+			if (raiz->Info1 == valor){
+				ret = 1;
+			}else if (valor < raiz->Info1){
+				ret = busca(raiz->esq, valor);
+
+			}else{
+				ret = busca(raiz->cen, valor);
+			}
+		
+		}else{
+	
+			if (raiz->Info1 == valor || raiz->Info2 == valor)
+			{
+				ret = 1;
+			}else if (valor < raiz->Info1)
+			{
+				ret = busca(raiz->esq, valor);
+			}else if (valor > raiz->Info2)
+			{
+				ret = busca(raiz->dir, valor);
+			}else{
+				ret = busca(raiz->cen, valor);
+			}
+		}
+	}
+	return ret;
+}
+
+
+//3------------------------------------
+int maiorNivel(struct Arv23 *raiz, int cont){//Função que retorna a maior profundidade ou nivel da árvore. passasse 0 para cont
+	if (raiz != NULL)
+	{
+		nivel = maiorNivel(raiz->esq, cont + 1);	
+	}
+	return cont;
+}
+
+
+//4------------------------------------
+int folhas(struct Arv23 *raiz, int *qtdinf, int ret){//Função que retorna o número de nós folha e a quantidade de informações (*qtdinf) contidas nesses nós, em uma árvore 2,3.
+	if (raiz != NULL)
+	{
+		if (ehFolha(raiz))
+		{
+			ret += 1;
+			if (raiz->NInfos == 1)
+			{
+				*qtdinf += 1; 
+			}else{
+				*qtdinf += 2; 
+			}
+			
+		}else if (raiz->NInfos == 1){
+			ret += folhas(raiz->esq, qtdinf, ret);
+			ret += folhas(raiz->cen, qtdinf, ret);
+		
+		}else{
+			ret += folhas(raiz->esq, qtdinf, ret);
+			ret += folhas(raiz->cen, qtdinf, ret);
+			ret += folhas(raiz->dir, qtdinf, ret);
+		}
+	}
+	return ret;
+}

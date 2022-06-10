@@ -1,0 +1,6 @@
+Aleff Ericlys Lustosa Araujo
+Atividade de fixação 3
+1.Para encontrar a quantidade de nós de uma árvore deve-se percorrer a mesma contando +1 para cada nó q se passar, ao final a execução se retá a quantidade de nós.
+Para a quantidade de reamos deve-se subitrair 1 na quantidade de nós.
+
+2.Para se contar a quantidade descendentes de um valor dado deve-se buscar por esse vaor na arvore depois de localizalo se percorre todos os nós dessa subárvore contando +1 para cada nó.

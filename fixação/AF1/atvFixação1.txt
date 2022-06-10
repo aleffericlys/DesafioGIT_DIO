@@ -1,0 +1,69 @@
+aluno: Aleff Ériclys Lustosa Araújo
+
+1.
+a: 	x é uma variavel do tipo inteiro que armazena um valor (10) e
+	px é uma variavel de tipo ponteiro que armazena o endereço de memória de x
+
+b:	px é uma variavel de tipo ponteiro que armazena o endereço de memória de x
+	py é uma variavel de tipo ponteiro que armazena o endereço de memória de y
+
+c: 	x = 10, End. x = (esdereço de x), px = (esdereço de x), y = 30
+
+d: 	A alteração feita foi somente os valores de x e y.
+
+e: 	y = 80, End. y = (endereço de y), py = (endereço de y), x = 30
+
+f: 	A alteração foi feita no valor de x e no endereço contido no ponteiro py.
+
+g:	Enquanto no altera1 as operações são realizadas acessando os valores contidos
+	nas posições de memória o altera2 altera, também, os endereços de memória dos ponteiros.
+
+2.
+Ambos os códigos fazem uma conversão de bonário pra decimal a diferença é que na função misterio1
+é do tipo void e utiliza recursvidade sem pendência com ponteiro para vassar o valor do resultado
+diretamente para uma variavel já alocada na memória, na função misterio2 é do tipo float e utiliza
+recursividade com pendencia e devolve o resultado do processamento por meio de return.
+EX:
+entrada                   	saida 
+"1010", 0.0, 0, 3			10.000000
+"101", 0.0, 0, 2			5.000000
+"10", 0.0, 0, 1				3.000000
+
+
+3.
+
+voit inter(int V1[TAM], int V2[TAM], int V3[TAM],int i, int j, int q1, int q2, int q3)  ->  A função deveria ser do tipo int. (int inter(int V1[TAM], int V2[TAM], int V3[TAM],int i, int j, int q1, int q2, int q3))
+{ 
+	if(i < q1 || j < q2) 
+	{ 
+    	if(V1[i] < V2[j]) 
+      		q3 = inter(V1,V2,V3, i, j+1,q1,q2,q3); -> deveria haver incremento na variavel i ao invés do j. (q3 = inter(V1,V2,V3,i+1,j,q1,q2,q3);)
+    	else if(V1[i] > V2[j]) 
+            inter(V1,V2,V3, i, j+1,q1,q2,q3); -> falta uma atribuição de valor para q3 do retorno da função.(q3 = inter(V1,V2,V3,i,j+1,q1,q2,q3);)
+        else {
+			V3[q3] = V1[j]; -> deveria haver i no ligar de j. (V3[q3] = V1[i];)
+            q3 = inter(V1,V2,V3,i+1,j+1,q1,q2,q3+1); 
+        } 
+  	} 
+	return(q3);
+}
+
+função feita sem recursividade:
+
+int inter2(int V1[TAM], int V2[TAM], int V3[TAM], int i, int j, int q1, int q2, int q3){
+
+	while(i < q1 || j < q2){
+		if (V1[i] < V2[j]){
+			i++;
+		}
+		else if (V1[i] > V2[j]){
+			j++;
+		}else{
+			V3[q3] = V1[i];
+			i++;
+			j++;
+			q3++;
+		}	
+	} 
+	return q3;
+}

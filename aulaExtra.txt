@@ -1,0 +1,5 @@
+Aleff Ericlys
+
+a) Para se descobrir a profundidade do valor dado basta percorrer a arvore fazendo a buca do valor contando +1 para cada nó q se passa até encontrar o valor.
+
+b) para se saber a altura desse mesmo nó basta depois de encontrar a profindidade desse nó encontrar o nó mais profundo da arvore e subtrair o valor da profundidade do nó mais profundo com o valor da profundidade dele.

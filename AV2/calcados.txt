@@ -1,0 +1,12 @@
+5 Sapato Dupe 35 10 23.90
+4 Rasteira Dupe 34 10 73.90
+3 Tenis Adidas 37 1 100.90
+2 Rasteira Nike 40 5 35.90
+1 Salto Dupe 33 2 39.90
+10 Bota Caterpillar 40 20 200.00
+9 Bota Caterpillar 38 40 200.00
+8 Sapato Dupe 36 24 50.90
+7 Salto Scarpin 34 10 43.90
+6 Tenis Dupe 32 10 63.90
+11 tenis nike 38 4 159.90
+12 tamanco renner 35 3 61.70
